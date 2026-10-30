@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// DataStore 1: Data Nasabah (Proses 1.0)
+model Nasabah {
+  id        String      @id @default(uuid())
+  nama      String      
+  nik       String      @unique
+  telepon   String      
+  rekening  Rekening[]
+  createdAt DateTime    @default(now())
+}
+
+// DataStore 2: Data Rekening (Proses 2.0)
+model Rekening {
+  noRekening String      @id
+  nasabahId  String
+  nasabah    Nasabah     @relation(fields: [nasabahId], references: [id], onDelete: Cascade)
+  saldo      Float       @default(0.0)
+  status     String      @default("AKTIF")
+  transaksi  Transaksi[]
+}
+
+// DataStore 3: Data Transaksi & Audit Trail (Proses 2.0 & 3.0)
+model Transaksi {
+  id             String   @id @default(uuid())
+  noRekening     String
+  rekening       Rekening @relation(fields: [noRekening], references: [noRekening])
+  jenis          String   // SETOR, TARIK, TRANSFER
+  nominal        Float
+  tujuanTransfer String?  // Nomor rekening tujuan (jika transfer)
+  waktu          DateTime @default(now())
+  status         String   @default("SUKSES")
+}

@@ -2,7 +2,7 @@
 // Modul ini bertugas menerima data nasabah, validate, simpan
 // ke D1 (Data Nasabah), pembuat rekening otomatis yang masuk ke D2 (Data rekening)
 
-import prisma from '@/lib/prisma'
+import prisma from "../../../src/lib/prisma"
 import { NextResponse } from 'next/server'
 
 // GET : Ambil data nasabah dan rekeningnya (D1 & D2)

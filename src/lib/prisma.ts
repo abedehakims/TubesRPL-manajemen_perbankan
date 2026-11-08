@@ -3,7 +3,6 @@
 // meminta banyak ke server supaya tidak lelah
 
 import { PrismaClient } from "@/app/generated/prisma/client"
-// import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3"
 
 const prismaClientSingleton = () => {
   return new PrismaClient({

@@ -3,20 +3,21 @@
 // meminta banyak ke server supaya tidak lelah
 
 import { PrismaClient } from "@/app/generated/prisma/client"
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3"
+// import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3"
 
 const prismaClientSingleton = () => {
-  const adapter = new PrismaBetterSqlite3({ url: "file:./dev.db" })
-    return new PrismaClient({ adapter })
+  return new PrismaClient({
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+  } as any);
 }
 
-const globalForPrisma = globalThis as unknown as {
-  prisma: ReturnType<typeof prismaClientSingleton> | undefined;
-}
+declare const globalThis : {
+  prismaGlobal: ReturnType<typeof prismaClientSingleton> | undefined;
+} & typeof global
 
-const prisma = globalThis.prisma ?? prismaClientSingleton()
+const prisma = globalThis.prismaGlobal ?? prismaClientSingleton()
 
 export default prisma
 
-if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma
+if (process.env.NODE_ENV !== 'production') globalThis.prismaGlobal = prisma
 

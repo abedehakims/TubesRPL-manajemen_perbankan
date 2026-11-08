@@ -42,7 +42,7 @@ export default defineConfig({
 In `.env`:
 
 ```env
-DATABASE_URL="file:./dev.db"
+DATABASE_URL=postgresql://postgres:+R!pDEsF-4.Vnw5@db.quqkhldsiplwnisppsxk.supabase.co:5432/postgres
 ```
 
 ### Connection String Format

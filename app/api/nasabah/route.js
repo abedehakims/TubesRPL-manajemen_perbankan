@@ -29,7 +29,7 @@ export async function POST(request) {
         }
 
         // Generate nomor rekening unik secara otomatis (contoh: 8 koordinat waktu + angka acak)
-        const noRekening = '707' + Math.floor(100000 + Math.random() * 900000)
+        const noRekening = 'ACC' + Math.floor(100000 + Math.random() * 900000)
 
         // Simpan ke database (D1 Nasabah & D2 Rekening)
         const nasabahBaru = await prisma.nasabah.create({
@@ -56,16 +56,4 @@ export async function POST(request) {
     } catch (error) {
         return NextResponse.json({ success: false, message: 'NIK sudah terdaftar atau terjadi kesalahan server.', error: error.message }, { status: 500 })
     }
-}
-
-export async function GET() {
-  try {
-    const nasabahList = await prisma.nasabah.findMany({
-      include: { rekening: true },
-      orderBy: { createdAt: 'desc' }
-    })
-    return NextResponse.json({ success: true, data: nasabahList })
-  } catch (error) {
-    return NextResponse.json({ success: false, message: error.message }, { status: 500 })
-  }
 }

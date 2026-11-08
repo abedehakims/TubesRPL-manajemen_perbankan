@@ -3,11 +3,11 @@
 // meminta banyak ke server supaya tidak lelah
 
 import { PrismaClient } from "@/app/generated/prisma/client"
+import { PrismaPg } from "@prisma/adapter-pg"
 
 const prismaClientSingleton = () => {
-  return new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  } as any);
+  const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+  return new PrismaClient({ adapter });
 }
 
 declare const globalThis : {

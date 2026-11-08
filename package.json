@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.10.1",
+    "@prisma/adapter-pg": "^7.10.1",
     "@prisma/client": "^7.10.1",
     "next": "16.4.3",
+    "pg": "^8.23.1",
     "postgres": "^4.1.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"

@@ -40,7 +40,7 @@ export async function POST(request) {
                 rekening: {
                     create: {
                         noRekening: noRekening,
-                        saldo: parseFloat(saldoAwal) || 0.0,
+                        saldo: Number(saldoAwal) || 0.0,
                         status: 'AKTIF'
                     }
                 }
@@ -56,4 +56,16 @@ export async function POST(request) {
     } catch (error) {
         return NextResponse.json({ success: false, message: 'NIK sudah terdaftar atau terjadi kesalahan server.', error: error.message }, { status: 500 })
     }
+}
+
+export async function GET() {
+  try {
+    const nasabahList = await prisma.nasabah.findMany({
+      include: { rekening: true },
+      orderBy: { createdAt: 'desc' }
+    })
+    return NextResponse.json({ success: true, data: nasabahList })
+  } catch (error) {
+    return NextResponse.json({ success: false, message: error.message }, { status: 500 })
+  }
 }

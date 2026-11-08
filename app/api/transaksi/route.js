@@ -2,7 +2,7 @@
 // Fungsi function ini menangani 3 jenis transaksi utama : Setor, tarik
 // dan transfer. Data ini akan memperbarui D2 dan mencatat ke D3
 
-import prisma from '../../../src/lib/prisma'
+import prisma from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
 // GET : Mengambil riwayat data transaksi (D3)

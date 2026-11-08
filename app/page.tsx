@@ -218,7 +218,7 @@ export default function Home() {
                     type="text" required value={formNasabah.nama}
                     onChange={(e) => setFormNasabah({ ...formNasabah, nama: e.target.value })}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Contoh: Budi Santoso"
+                    placeholder="Contoh: Rosemary"
                   />
                 </div>
                 <div>
@@ -227,7 +227,7 @@ export default function Home() {
                     type="text" required value={formNasabah.nik}
                     onChange={(e) => setFormNasabah({ ...formNasabah, nik: e.target.value })}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="3517123..."
+                    placeholder="317. . . . . ."
                   />
                 </div>
                 <div>
@@ -236,7 +236,7 @@ export default function Home() {
                     type="text" required value={formNasabah.telepon}
                     onChange={(e) => setFormNasabah({ ...formNasabah, telepon: e.target.value })}
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="08123456..."
+                    placeholder="08. . . . . . . . . ."
                   />
                 </div>
                 <div>

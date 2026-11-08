@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
 }
 
 // DataStore 1: Data Nasabah (Proses 1.0)

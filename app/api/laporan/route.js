@@ -3,7 +3,7 @@
 // melakukan analisis risiko otomatis
 // Dengan cara agregasi data store dan menyediakan struktur data siap saji
 
-import prisma from '../../../src/lib/prisma'
+import prisma from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
 // GET : PROSES 3.0 - Pengawasan Risiko & Pelaporan (Manajemen & OJK/BI)

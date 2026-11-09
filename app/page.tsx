@@ -181,7 +181,7 @@ export default function Home() {
         
         {/* Header */}
         <header className="bg-gradient-to-r from-blue-900 to-indigo-800 text-white p-6 rounded-2xl shadow-md">
-          <h1 className="text-3xl font-bold">Sistem Manajemen Perbankan</h1>
+          <h1 className="text-3xl font-bold">DanaAlir ~ Sistem Manajemen Perbankan</h1>
           <p className="text-blue-100 text-sm mt-1">Implementasi Paradigm Terstruktur (DFD Level 0 & Level 1)</p>
         </header>
 

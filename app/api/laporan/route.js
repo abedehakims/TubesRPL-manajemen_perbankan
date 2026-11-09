@@ -56,6 +56,7 @@ export async function GET() {
             }
         }, { status: 200 })
     } catch (error) {
+        console.error("Error fetching laporan API:", error)
         return NextResponse.json({
             success: false,
             message: "Gagal memproses laporan manajemen risiko",

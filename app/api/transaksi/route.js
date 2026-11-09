@@ -9,7 +9,7 @@ import { NextResponse } from 'next/server'
 export async function GET() {
     try {
         const riwayatTransaksi = await prisma.transaksi.findMany({
-            include: { rekening: true },
+            include: { rekening: { include : { nasabah: true } } },
             orderBy: { waktu: 'desc' }
         })
         return NextResponse.json ({ success: true, data: riwayatTransaksi }, { status: 200 })

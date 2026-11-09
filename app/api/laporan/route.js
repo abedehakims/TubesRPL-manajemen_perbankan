@@ -3,9 +3,6 @@
 // melakukan analisis risiko otomatis
 // Dengan cara agregasi data store dan menyediakan struktur data siap saji
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-
 import prisma from "../../../src/lib/prisma"
 import { NextResponse } from 'next/server'
 

@@ -127,8 +127,12 @@ export default function Home() {
       if (data.success) {
         setMessage('✅ ' + data.message)
         setFormNasabah({ nama: '', nik: '', telepon:'', saldoAwal: '' })
-        fetchNasabah()
-        fetchLaporan()
+        // Tarik data terbaru secara paralel agar UI langsung ter-update tanpa refresh
+        await Promise.all([
+          fetchNasabah(),
+          fetchTransaksi(),
+          fetchLaporan()
+        ])
       } else {
         setMessage('❌ ' + data.message)
       }
@@ -155,8 +159,12 @@ export default function Home() {
       if (data.success) {
         setMessage('✅ ' + data.message)
         setFormTransaksi({ noRekening: '', jenis: 'SETOR', nominal:'', tujuanTransfer: '' })
-        fetchNasabah()
-        fetchLaporan()
+        // REAKTIF: Tarik data terbaru secara paralel agar UI langsung ter-update tanpa refresh
+        await Promise.all([
+          fetchNasabah(),
+          fetchTransaksi(),
+          fetchLaporan()
+        ])
       } else {
         setMessage('❌ ' + data.message)
       }

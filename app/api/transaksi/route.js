@@ -2,6 +2,9 @@
 // Fungsi function ini menangani 3 jenis transaksi utama : Setor, tarik
 // dan transfer. Data ini akan memperbarui D2 dan mencatat ke D3
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import prisma from "../../../src/lib/prisma"
 import { NextResponse } from 'next/server'
 

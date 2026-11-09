@@ -2,6 +2,9 @@
 // Modul ini bertugas menerima data nasabah, validate, simpan
 // ke D1 (Data Nasabah), pembuat rekening otomatis yang masuk ke D2 (Data rekening)
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import prisma from "../../../src/lib/prisma"
 import { NextResponse } from 'next/server'
 
